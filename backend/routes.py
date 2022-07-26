@@ -7,8 +7,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost:4200",
-    "http://localhost"
-    "http://localhost:8080",
+    "http://localhost" "http://localhost:8080",
 ]
 
 app.add_middleware(
@@ -30,6 +29,7 @@ def get_records():
 def post_record(record: Record):
     document = RecordLogic().post_record(record.dict())
     return f"Successfully Created Record {document.inserted_id}"
+
 
 @app.put("/record")
 def update_record(record: Record):
