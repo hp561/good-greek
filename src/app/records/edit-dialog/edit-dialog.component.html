@@ -1,0 +1,100 @@
+<div mat-dialog-content>
+  <div fxLayout="column" fxFlex>
+    <div class="title">
+      <mat-label>Edit Record</mat-label>
+    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input
+        matInput
+        [(ngModel)]="data.firstName"
+        placeholder="Ex. John"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field fxFlex="20" class="example-full-width" appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input
+        matInput
+        [(ngModel)]="data.lastName"
+        placeholder="Ex. Smith"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Phone Number</mat-label>
+      <input
+        matInput
+        type="number"
+        [(ngModel)]="data.phoneNumber"
+        placeholder="Ex. 5617418006"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input
+        required
+        matInput
+        type="email"
+        [(ngModel)]="data.email"
+        placeholder="Ex. harshypatel@gmail.com"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Street</mat-label>
+      <input
+        matInput
+        [(ngModel)]="data.street"
+        placeholder="Ex. 50 S Old Dixie Hwy"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>City</mat-label>
+      <input
+        matInput
+        [(ngModel)]="data.city"
+        placeholder="Ex. Jupiter"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>State</mat-label>
+      <mat-select [(value)]="data.state" required>
+        <mat-option *ngFor="let state of states" [value]="state">
+          {{ state }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Zip Code</mat-label>
+      <input
+        matInput
+        type="number"
+        [(ngModel)]="data.zipCode"
+        placeholder="Ex. 33458"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Services</mat-label>
+      <mat-select [formControl]="services" [(ngModel)]="data.services" multiple>
+        <mat-option *ngFor="let service of servicesList" [value]="service">{{
+          service
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- <mat-hint align="end" *ngIf="!email.valid"> Invalid Entry </mat-hint> -->
+    <button mat-raised-button (click)="save()" color="accent" type="submit">
+      Submit
+    </button>
+  </div>
+</div>

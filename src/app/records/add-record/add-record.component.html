@@ -1,0 +1,111 @@
+<router-outlet></router-outlet>
+<div fxLayout="column" fxFlex *ngIf="!isLoading">
+  <div class="title">
+    <mat-label>Add New Master Client Record</mat-label>
+  </div>
+  <div
+    class="view-records"
+    fxLayout="row"
+    fxLayoutAlign="end"
+    style="padding: 10px"
+  >
+    <button
+      class="edit-button"
+      (click)="viewRecords()"
+      mat-raised-button
+      color="primary"
+    >
+      View Records
+    </button>
+  </div>
+  <mat-form-field appearance="fill">
+    <mat-label>First Name</mat-label>
+    <input matInput [(ngModel)]="firstName" placeholder="Ex. John" required />
+  </mat-form-field>
+
+  <mat-form-field fxFlex="20" class="example-full-width" appearance="fill">
+    <mat-label>Last Name</mat-label>
+    <input matInput [(ngModel)]="lastName" placeholder="Ex. Smith" required />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Phone Number</mat-label>
+    <input
+      matInput
+      type="number"
+      [(ngModel)]="phoneNumber"
+      placeholder="Ex. 5617418006"
+      required
+    />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input
+      required
+      matInput
+      type="email"
+      [(ngModel)]="email"
+      placeholder="Ex. harshypatel@gmail.com"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Street</mat-label>
+    <input
+      matInput
+      [(ngModel)]="street"
+      placeholder="Ex. 50 S Old Dixie Hwy"
+      required
+    />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>City</mat-label>
+    <input matInput [(ngModel)]="city" placeholder="Ex. Jupiter" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>State</mat-label>
+    <mat-select [(value)]="state" required>
+      <mat-option *ngFor="let state of states" [value]="state">
+        {{ state }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Zip Code</mat-label>
+    <input
+      matInput
+      type="number"
+      [(ngModel)]="zipCode"
+      placeholder="Ex. 33458"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Services</mat-label>
+    <mat-select
+      [formControl]="servicesFormControl"
+      [(ngModel)]="services"
+      multiple
+    >
+      <mat-option *ngFor="let service of servicesList" [value]="service">{{
+        service
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- <mat-hint align="end" *ngIf="!email.valid"> Invalid Entry </mat-hint> -->
+  <button
+    mat-raised-button
+    (click)="save()"
+    [disabled]="!isValid()"
+    color="accent"
+    type="submit"
+  >
+    Submit
+  </button>
+</div>
+<mat-spinner class="spinner" *ngIf="isLoading"></mat-spinner>

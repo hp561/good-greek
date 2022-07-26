@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 
+import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -9,8 +10,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FlexLayoutModule } from '@angular/flex-layout';
-// import {MatTooltip} from '@angular/material/tooltip'
-// import {MatDialog} from '@angular/material/dialog'
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const materialModules = [
   MatInputModule,
@@ -22,8 +24,10 @@ const materialModules = [
   MatTableModule,
   MatFormFieldModule,
   FlexLayoutModule,
-  // MatTooltip,
-  // MatDialog,
+  MatSelectModule,
+  MatIconModule,
+  MatMenuModule,
+  MatDialogModule,
 ];
 
 @NgModule({
